@@ -28,8 +28,10 @@ Declare any form or input DOM element with a session-bind attribute, with the Se
 ``` sh
 
 <form session-bind="someSessionProperty">
+
 	<input type="text" name="someField">
 	<input type="text" name="someOtherField">
+
 </form>
 ```
 
@@ -37,6 +39,7 @@ Any change in one of the inputs of the form will store its data as a JSON object
 
 ``` sh
 Session.get("someSessionProperty")
+
 >>  {
 		someField: "typedText",
 		someOtherField: "otherTypedText"
