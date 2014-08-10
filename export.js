@@ -28,7 +28,7 @@ var sbTimeout = null;
 $.fn.bindElementToSession = function() {
 	
 	var self = this,
-		data = $(self).valueJSON();
+		data = $(self).toJSON();
 
 	if (sbTimeout != null) {
 		clearTimeout(sbTimeout);
@@ -39,17 +39,17 @@ $.fn.bindElementToSession = function() {
 	sbTimeout = setTimeout(function() {
 
 		var session = $(self).getElementSessionName();
-		Session.set(session, data);
+		Session.setJSON(session, data);
 		
 	}, timeout); 			
 	
 }
 
-$.fn.valueJSON = function() {
+$.fn.toJSON = function() {
 	
 	var self = this,
-		elementType = $(self).get(0).tagName,
-		data = {};
+		data = {},
+		elementType = $(self).get(0).tagName;
 
 	if (elementType == 'FORM') data = form2js($(self).get(0));
 	if (elementType == 'INPUT') data[$(self).attr("name")] = $(self).val();
@@ -73,7 +73,7 @@ $.fn.bindDataToElement = function(data, fields) {
 	
 	var self = this,
 		elementType = $(self).get(0).tagName,
-		currentData = $(self).valueJSON();
+		currentData = $(self).toJSON();
 	
 	if (!_.isString(data)) {
 		if (_.isArray(fields)) data = _.pick(data, fields);
@@ -92,7 +92,7 @@ $.fn.bindSessionToElement = function(fields) {
 	
 	var self = this,
 		session = $(self).getElementSessionName() || null,
-		sessionData = Session.get(session) || null;
+		sessionData = Session.getJSON(session) || null;
 		$(self).bindDataToElement(sessionData, fields);
 
 }

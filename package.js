@@ -7,7 +7,8 @@ Package.on_use(function (api, where) {
 		api.use([
 			'ui',
 			'jquery',
-			'underscore'
+			'underscore',
+			'session-json'
 		], 'client');
 	}
 	api.add_files([
