@@ -4,6 +4,7 @@
 	- It uses jQuery because UI.body events are buggy (https://github.com/meteor/meteor/wiki/Using-Blaze#uibody-is-now-a-template-corresponding-to-the-entire-body-element)
 	- Form data is parsed with https://github.com/maxatwork/form2js
 	- A timeout is used to prevent setting the Session var on each keyup (see for example http://stackoverflow.com/questions/1909441/jquery-keyup-delay)
+
 */
 
 /////////////////////
