@@ -35,7 +35,7 @@ Declare any form or input DOM element with a session-bind attribute, with the Se
 </form>
 ```
 
-Any change in one of the inputs of the form will store its data as a JSON object in the "someSessionProperty" property of the Session variable.
+Any change in the form will store its data as a JSON object in the "someSessionProperty" property of the Session variable.
 
 ``` sh
 Session.get("someSessionProperty")
